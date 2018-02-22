@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Simple invoice API",
+    "description": "API for getting the invoices.",
+    "version": "1.0"
+  },
+  "produces": ["application/json"],
+  "host": "localhost:3030",
+  "basePath": "/",
+  "paths": {
+    "/allUsers": {
+      "get": {
+        "x-swagger-router-controller": "userController",
+        "operationId": "GET_USERS",
+        "tags": ["/"],
+        "description": "Returns  all users .",
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        }
+      }
+    },
+    "/users/id": {
+      "get": {
+        "x-swagger-router-controller": "userController",
+        "operationId": "GET_USER",
+        "tags": ["/"],
+        "description": "Returns the user details.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": " ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "$ref": "#/definitions/data"
+            }
+          }
+        }
+      }
+    },
+    "/addUser": {
+      "post": {
+        "x-swagger-router-controller": "userController",
+        "operationId": "ADD_USER",
+        "tags": [""],
+        "description": "Returns the invoice details.",
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "invoice details ",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        }
+      }
+    },
+    "/updateUser/data": {
+      "put": {
+        "x-swagger-router-controller": "userController",
+        "operationId": "UPDATE_USER",
+        "tags": [""],
+        "description": "Returns the updated user details.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "id ",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "data",
+            "in": "body",
+            "description": "updates the user details ",
+            "schema": {
+              "$ref": "#/definitions/user"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "$ref": "#/definitions/users"
+            }
+          }
+        }
+      }
+    },
+    "/deleteUser/id": {
+      "delete": {
+        "x-swagger-router-controller": "userController",
+        "operationId": "DELETE_USER",
+        "tags": ["/"],
+        "description": "delete the particular user.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": " ",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Invalid request.",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          },
+          "200": {
+            "description": "Successful request.",
+            "schema": {
+              "$ref": "#/definitions/data"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": ["message"]
+    },
+    "data": {
+      "properties": {
+        "_id": {
+          "type": "string",
+          "example": ""
+        },
+        "name": {
+          "type": "string",
+          "example": ""
+        },
+        "email_id": {
+          "type": "string",
+          "example": ""
+        },
+        "password": {
+          "type": "string",
+          "example": ""
+        }
+      }
+    },
+
+    "users": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/data"
+          }
+        }
+      },
+      "required": ["data"]
+    },
+    "user": {
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": ""
+        },
+        "email_id": {
+          "type": "string",
+          "example": ""
+        },
+        "password": {
+          "type": "string",
+          "example": ""
+        }
+      }
+    }
+  }
+}

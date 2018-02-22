@@ -1,0 +1,25 @@
+{
+  "name": "task2",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "api-doc-generator": "0.0.2",
+    "body-parser": "~1.17.1",
+    "boom": "^7.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-api-docs": "0.0.4",
+    "is": "^3.2.1",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.0.1",
+    "mongoose": "^4.11.13",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2",
+    "stripe": "^5.4.0",
+    "swagger-tools": "^0.10.3"
+  }
+}
