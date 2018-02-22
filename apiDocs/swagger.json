@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Simple invoice API",
-    "description": "API for getting the invoices.",
+    "title": "Simple users API",
+    "description": "API for getting the users.",
     "version": "1.0"
   },
   "produces": ["application/json"],
